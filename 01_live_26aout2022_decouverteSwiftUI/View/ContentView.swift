@@ -11,80 +11,89 @@ struct ContentView: View {
     
     // Propriétés avec décorateur de vérification d'état @State
     @State var changementLangue: Bool = true
-    @State var name: String = "Votre nom appaîtra ici"
-    @State private var formulaire: Bool = false;
+    @State var name: String = ""
+    @State private var modale: Bool = false;
     
-    var titleFr: String = "Bonjour, bienvenue dans SwiftUI"
-    var titleEng: String = "Hello, welcome to SwiftUI"
+    var titleFr: String = "Bienvenue dans SwiftUI"
+    var titleEng: String = "Welcome to SwiftUI"
     
     var body: some View {
-        VStack{
-            // Container vue Text: permet d'afficher des données de type string
-            Text(changementLangue ? titleFr : titleEng)
-                .font(.custom("Noteworthy", size: 25))
-                .foregroundColor(Color("Color1"))
-                .padding()
-                .multilineTextAlignment(.center)
-            
-            // Container vue Image: permet d'afficher image que l'on ajoute dans Assets
-            Image("swift")
-                .resizable()
-                .scaledToFit()
-                .frame(width: 150, height: 150)
-                .clipShape(Circle())
-                .overlay(
-                    Circle()
-                        .stroke(
-                            Color("Color1"),
-                            lineWidth: 8
-                        )
-                )
-                .shadow(radius: 5)
-                .padding()
-            
-            Text("la nouvelle façon de développer des application IOS")
-                .foregroundColor(Color("Color1"))
-                .padding()
-                .multilineTextAlignment(.center)
-            
-            Divider()
-                .padding()
-            
-            Text(name)
-                .padding()
-                .border(/*@START_MENU_TOKEN@*/Color.black/*@END_MENU_TOKEN@*/, width: /*@START_MENU_TOKEN@*/2/*@END_MENU_TOKEN@*/)
-            
-            Button {
-                formulaire.toggle()
-            } label: {
-                Text("Inscrire son nom")
-                    .foregroundColor(.white)
-                    .fontWeight(.bold)
+        ScrollView(showsIndicators: false) {
+            // Container vue verticale: les autres éléments seront en pile verticale
+            VStack(alignment: .center, spacing: 25.0) {
+                // Container vue Text: permet d'afficher des données de type string
+                // Condition ternaire qui selon si true/false affichera le titre en français ou en anglais
+                Text(changementLangue ? titleFr : titleEng)
+                    .font(.custom("Noteworthy", size: 35))
+                    .foregroundColor(Color("Color1"))
+                    .multilineTextAlignment(.center)
                 
+                // Container vue horizontal les autres éléments seront en pile horizontale
+                HStack(alignment: .center) {
+                    Text("la nouvelle façon de développer des application IOS")
+                        .font(.body)
+                        .foregroundColor(Color("Color2"))
+                        .multilineTextAlignment(.center)
+                    
+                    // Container vue Image: permet d'afficher image que l'on ajoute dans Assets
+                    Image("swift")
+                        .resizable()
+                        .scaledToFit()
+                        .frame(width: 50, height: 50)
+                        .clipShape(Circle())
+                        .shadow(radius: 5)
+                }
+                
+                Divider()
+                
+                Text("Notions d'états avec @State")
+                    .font(.title3)
+                    .fontWeight(.semibold)
+                    .multilineTextAlignment(.center)
+                
+                // Bouton qui va changer la propriété de type booléenne déclarée plus haut
+                Button {
+                    changementLangue.toggle()
+                } label: {
+                    Text("Changer la langue du titre")
+                        .foregroundColor(.white)
+                        .fontWeight(.bold)
+                }
+                .tint(.green)
+                .controlSize(.large)
+                .buttonStyle(.borderedProminent)
+                .shadow(radius: 5)
+                
+                Divider()
+                    .padding()
+                
+                Text("Notions de Binding avec @Biding")
+                    .font(.title3)
+                    .fontWeight(.semibold)
+                    .multilineTextAlignment(.center)
+                
+                Text(name)
+                    .frame(width: 250, height: 10)
+                    .padding(10.0)
+                    .border(/*@START_MENU_TOKEN@*/Color.black/*@END_MENU_TOKEN@*/, width: 1)
+                
+                Button {
+                    modale.toggle()
+                } label: {
+                    Text("Afficher la modale")
+                        .foregroundColor(.white)
+                        .fontWeight(.bold)
+                    
+                }
+                .tint(.blue)
+                .controlSize(.large)
+                .buttonStyle(.borderedProminent)
+                .shadow(radius: 5)
+                .sheet(isPresented: $modale) {
+                    FormView(name: $name)
+                }
             }
-            .tint(.blue)
-            .controlSize(.large)
-            .buttonStyle(.borderedProminent)
-            .shadow(radius: 5)
-            .sheet(isPresented: $formulaire) {
-                SousVue(name: $name)
-            }
-            
-            Spacer()
-            
-            // Bouton qui va changer la propriété de type booléenne déclarée plus haut
-            Button {
-                changementLangue.toggle()
-            } label: {
-                Text("Changer la langue du titre")
-                    .foregroundColor(.white)
-                    .fontWeight(.bold)
-            }
-            .tint(.green)
-            .controlSize(.large)
-            .buttonStyle(.borderedProminent)
-            
-            Spacer()
+            .padding()
         }
     }
 }

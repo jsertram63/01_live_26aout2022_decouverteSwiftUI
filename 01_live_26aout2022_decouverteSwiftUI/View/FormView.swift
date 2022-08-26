@@ -7,9 +7,10 @@
 
 import SwiftUI
 
-struct SousVue: View {
+struct FormView: View {
     
-    @Binding var name:String
+    @Binding var name: String
+    
     var body: some View {
         TextField("Entrez votre nom", text: $name)
     }

@@ -11,7 +11,7 @@
 		89047B9028B8C52700C659A2 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89047B8F28B8C52700C659A2 /* ContentView.swift */; };
 		89047B9228B8C52900C659A2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 89047B9128B8C52900C659A2 /* Assets.xcassets */; };
 		89047B9528B8C52900C659A2 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 89047B9428B8C52900C659A2 /* Preview Assets.xcassets */; };
-		89047B9C28B8D32A00C659A2 /* SousVue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89047B9B28B8D32A00C659A2 /* SousVue.swift */; };
+		89047B9C28B8D32A00C659A2 /* FormView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89047B9B28B8D32A00C659A2 /* FormView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -20,7 +20,7 @@
 		89047B8F28B8C52700C659A2 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		89047B9128B8C52900C659A2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		89047B9428B8C52900C659A2 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		89047B9B28B8D32A00C659A2 /* SousVue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SousVue.swift; sourceTree = "<group>"; };
+		89047B9B28B8D32A00C659A2 /* FormView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -38,7 +38,7 @@
 			isa = PBXGroup;
 			children = (
 				89047B8F28B8C52700C659A2 /* ContentView.swift */,
-				89047B9B28B8D32A00C659A2 /* SousVue.swift */,
+				89047B9B28B8D32A00C659A2 /* FormView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -150,7 +150,7 @@
 			files = (
 				89047B9028B8C52700C659A2 /* ContentView.swift in Sources */,
 				89047B8E28B8C52700C659A2 /* _1_live_26aout2022_decouverteSwiftUIApp.swift in Sources */,
-				89047B9C28B8D32A00C659A2 /* SousVue.swift in Sources */,
+				89047B9C28B8D32A00C659A2 /* FormView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
