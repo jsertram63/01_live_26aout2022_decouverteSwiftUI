@@ -73,7 +73,7 @@ struct ContentView: View {
                     .multilineTextAlignment(.center)
                 
                 Text(name)
-                    .frame(width: 250, height: 10)
+                    .frame(width: 250, height: 15)
                     .padding(10.0)
                     .border(/*@START_MENU_TOKEN@*/Color.black/*@END_MENU_TOKEN@*/, width: 1)
                 
