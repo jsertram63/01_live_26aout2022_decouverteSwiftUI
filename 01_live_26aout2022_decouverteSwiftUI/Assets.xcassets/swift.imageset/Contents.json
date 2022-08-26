@@ -1,15 +1,17 @@
 {
   "images" : [
     {
-      "filename" : "Capture d’écran 2022-08-26 à 11.29.49.png",
+      "filename" : "swift.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
+      "filename" : "swift@2x.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
+      "filename" : "swift@3x.png",
       "idiom" : "universal",
       "scale" : "3x"
     }
