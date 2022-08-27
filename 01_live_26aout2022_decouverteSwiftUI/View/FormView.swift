@@ -8,39 +8,61 @@
 import SwiftUI
 
 struct FormView: View {
+    @Environment(\.dismiss) var dismiss
     
-    @Binding var firstname: String
-    @Binding var name: String
+    @Binding var firstname2: String
+    @Binding var name2: String
     
     var body: some View {
-        ZStack {
-            Color.brown.opacity(0.5).ignoresSafeArea()
-            
-            VStack(alignment: .leading) {
-                Text("Prénom")
-                    .font(.title3)
-                    .fontWeight(.medium)
+        NavigationView {
+            VStack {
+                Form {
+                    Section(
+                        header: Text("Nom")
+                            .fontWeight(.heavy),
+                        content: {
+                            TextField("Entrer votre nom", text: $name2)
+                        })
+                    
+                    Section(
+                        header: Text("Prénom")
+                            .fontWeight(.heavy),
+                        content: {
+                            TextField("Entrer votre prénom", text: $firstname2)
+                        })
+                }
                 
-                TextField("Entrer votre prénom", text: $firstname)
-                    .textFieldStyle(RoundedBorderTextFieldStyle())
-                    .shadow(radius: 5)
+                Button {
+                    //
+                    dismiss()
+                } label: {
+                    Text("Soumettre")
+                        .foregroundColor(.white)
+                        .fontWeight(.bold)
+                }
                 
-                Text("Nom")
-                    .font(.title3)
-                    .fontWeight(.medium)
-                
-                TextField("Entrer votre nom", text: $name)
-                    .textFieldStyle(RoundedBorderTextFieldStyle())
-                    .shadow(radius: 5)
+                .tint(.brown)
+                .controlSize(.large)
+                .buttonStyle(.borderedProminent)
+                .shadow(radius: 5)
             }
-            .padding()
+            .navigationBarTitle("Présentez-vous 👋🏻")
+            .background(Color.brown.opacity(0.5).ignoresSafeArea())
+            .onAppear {
+                UINavigationBar.appearance().largeTitleTextAttributes = [
+                    .foregroundColor: UIColor.brown,
+                    .font : UIFont(name:"Noteworthy", size: 40)!
+                ]
+                
+                UITableView.appearance().backgroundColor = .clear
+            }
         }
     }
-    
 }
+
 
 struct FormView_Previews: PreviewProvider {
     static var previews: some View {
-        FormView(firstname: .constant(""), name: .constant(""))
+        FormView(firstname2: .constant(""), name2: .constant(""))
     }
 }
