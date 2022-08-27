@@ -28,7 +28,7 @@ struct ContentView: View {
     var titleEng: String = "Hello SwiftUI"
     
     var body: some View {
-        // Container vue de permettant d'activer une navigation entre vues
+        // Container vue permettant d'activer une navigation entre vues
         NavigationView {
             // Container vue permettant de scroller lorsque les éléments sortent de la safe area
             ScrollView(showsIndicators: false) {
@@ -40,15 +40,17 @@ struct ContentView: View {
                         // Container vue Text: permet d'afficher des données de type string
                         Text("la nouvelle façon de développer des applications iOS")
                             .font(.body)
-                            .foregroundColor(Color("Color2"))
+                            .foregroundColor(Color("Color1"))
                             .multilineTextAlignment(.center)
                     }
                     
+                    // Container affichant un séparateur
                     Divider()
                     
                     Text("Notions d'état avec @State")
                         .font(.title3)
-                        .fontWeight(.semibold)
+                        .foregroundColor(Color.brown)
+                        .fontWeight(.bold)
                         .multilineTextAlignment(.center)
                     
                     // Bouton qui va changer la propriété de type booléenne déclarée plus haut
@@ -59,28 +61,32 @@ struct ContentView: View {
                             .foregroundColor(.white)
                             .fontWeight(.bold)
                     }
-                    .tint(.green)
+                    .tint(Color("Color2"))
                     .controlSize(.large)
                     .buttonStyle(.borderedProminent)
                     .shadow(radius: 5)
                     
                     Divider()
-                        .padding()
                     
                     Text("Notions de Binding avec @Binding")
                         .font(.title3)
-                        .fontWeight(.semibold)
+                        .foregroundColor(Color.brown)
+                        .fontWeight(.bold)
                         .multilineTextAlignment(.center)
                     
                     Text(name1)
                         .frame(width: 250, height: 15)
                         .padding(10.0)
-                        .border(/*@START_MENU_TOKEN@*/Color.black/*@END_MENU_TOKEN@*/, width: 1)
+                        .background(.ultraThickMaterial)
+                        .cornerRadius(10)
+                        .shadow(radius: 5)
                     
                     Text(firstname1)
                         .frame(width: 250, height: 15)
                         .padding(10.0)
-                        .border(/*@START_MENU_TOKEN@*/Color.black/*@END_MENU_TOKEN@*/, width: 1)
+                        .background(.ultraThickMaterial)
+                        .cornerRadius(10)
+                        .shadow(radius: 5)
                     
                     Button {
                         modale.toggle()
@@ -88,9 +94,8 @@ struct ContentView: View {
                         Text("Afficher la modale")
                             .foregroundColor(.white)
                             .fontWeight(.bold)
-                        
                     }
-                    .tint(.blue)
+                    .tint(Color("Color1"))
                     .controlSize(.large)
                     .buttonStyle(.borderedProminent)
                     .shadow(radius: 5)
@@ -100,6 +105,7 @@ struct ContentView: View {
                 }
                 .padding()
             }
+            // Modifyer permettant d'afficher un titre dans la NavigationView
             .navigationBarTitle(
                 // Condition ternaire qui selon si true/false affichera le titre en français ou en anglais
                 Text(changementLangue ? titleFr : titleEng)
@@ -113,7 +119,7 @@ struct ContentView: View {
                     Image("swift")
                         .resizable()
                         .scaledToFit()
-                        .frame(width: 40, height: 40)
+                        .frame(width: 35, height: 35)
                         .clipShape(Circle())
                         .shadow(radius: 5)
                 }
