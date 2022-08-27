@@ -60,7 +60,7 @@ struct ContentView: View {
                     Button {
                         changementLangue.toggle()
                     } label: {
-                        Text("Changer la langue du titre")
+                        Text("Traduire")
                             .foregroundColor(.white)
                             .fontWeight(.semibold)
                     }
