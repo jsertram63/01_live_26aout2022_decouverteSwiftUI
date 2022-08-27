@@ -24,8 +24,11 @@ struct ContentView: View {
     @State var name1: String = ""
     @State private var modale: Bool = false;
     
-    var titleFr: String = "Bonjour SwiftUI"
-    var titleEng: String = "Hello SwiftUI"
+    var titreFr: String = "Bonjour SwiftUI"
+    var titreEng: String = "Hello SwiftUI"
+    
+    var sousTritreFr: String = "La nouvelle façon de développer des applications iOS"
+    var sousTitreEng: String = "The new way to develop iOS apps"
     
     var body: some View {
         // Container vue permettant d'activer une navigation entre vues
@@ -38,7 +41,7 @@ struct ContentView: View {
                     HStack(alignment: .center) {
                         
                         // Container vue Text: permet d'afficher des données de type string
-                        Text("la nouvelle façon de développer des applications iOS")
+                        Text(changementLangue ? sousTritreFr : sousTitreEng)
                             .font(.body)
                             .foregroundColor(Color("Color1"))
                             .multilineTextAlignment(.center)
@@ -47,7 +50,7 @@ struct ContentView: View {
                     // Container affichant un séparateur
                     Divider()
                     
-                    Text("Notions d'état avec @State")
+                    Text("Notion d'état avec @State")
                         .font(.title3)
                         .foregroundColor(Color.brown)
                         .fontWeight(.bold)
@@ -59,7 +62,7 @@ struct ContentView: View {
                     } label: {
                         Text("Changer la langue du titre")
                             .foregroundColor(.white)
-                            .fontWeight(.bold)
+                            .fontWeight(.semibold)
                     }
                     .tint(Color("Color2"))
                     .controlSize(.large)
@@ -68,7 +71,7 @@ struct ContentView: View {
                     
                     Divider()
                     
-                    Text("Notions de Binding avec @Binding")
+                    Text("Notion de binding avec @Binding")
                         .font(.title3)
                         .foregroundColor(Color.brown)
                         .fontWeight(.bold)
@@ -105,7 +108,7 @@ struct ContentView: View {
                     } label: {
                         Text("Présentez-vous")
                             .foregroundColor(.white)
-                            .fontWeight(.bold)
+                            .fontWeight(.semibold)
                     }
                     .tint(Color("Color1"))
                     .controlSize(.large)
@@ -120,7 +123,7 @@ struct ContentView: View {
             // Modifyer permettant d'afficher un titre dans la NavigationView
             .navigationBarTitle(
                 // Condition ternaire qui selon si true/false affichera le titre en français ou en anglais
-                Text(changementLangue ? titleFr : titleEng)
+                Text(changementLangue ? titreFr : titreEng)
                     .font(.custom("Noteworthy", size: 35))
                     .foregroundColor(Color.brown)
             )
