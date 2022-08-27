@@ -11,6 +11,8 @@ struct ContentView: View {
     
     // Propriétés avec décorateur de vérification d'état @State
     @State var changementLangue: Bool = true
+    
+    @State var firstname: String = ""
     @State var name: String = ""
     @State private var modale: Bool = false;
     
@@ -20,7 +22,7 @@ struct ContentView: View {
     var body: some View {
         ScrollView(showsIndicators: false) {
             // Container vue verticale: les autres éléments seront en pile verticale
-            VStack(alignment: .center, spacing: 25.0) {
+            VStack(alignment: .center, spacing: 50.0) {
                 // Container vue Text: permet d'afficher des données de type string
                 // Condition ternaire qui selon si true/false affichera le titre en français ou en anglais
                 Text(changementLangue ? titleFr : titleEng)
@@ -30,7 +32,7 @@ struct ContentView: View {
                 
                 // Container vue horizontal les autres éléments seront en pile horizontale
                 HStack(alignment: .center) {
-                    Text("la nouvelle façon de développer des application IOS")
+                    Text("la nouvelle façon de développer des applications iOS")
                         .font(.body)
                         .foregroundColor(Color("Color2"))
                         .multilineTextAlignment(.center)
@@ -46,7 +48,7 @@ struct ContentView: View {
                 
                 Divider()
                 
-                Text("Notions d'états avec @State")
+                Text("Notions d'état avec @State")
                     .font(.title3)
                     .fontWeight(.semibold)
                     .multilineTextAlignment(.center)
@@ -67,7 +69,7 @@ struct ContentView: View {
                 Divider()
                     .padding()
                 
-                Text("Notions de Binding avec @Biding")
+                Text("Notions de Binding avec @Binding")
                     .font(.title3)
                     .fontWeight(.semibold)
                     .multilineTextAlignment(.center)
@@ -90,7 +92,7 @@ struct ContentView: View {
                 .buttonStyle(.borderedProminent)
                 .shadow(radius: 5)
                 .sheet(isPresented: $modale) {
-                    FormView(name: $name)
+                    FormView(firstname: $firstname, name: $name)
                 }
             }
             .padding()

@@ -9,16 +9,38 @@ import SwiftUI
 
 struct FormView: View {
     
+    @Binding var firstname: String
     @Binding var name: String
     
     var body: some View {
-        TextField("Entrez votre nom", text: $name)
+        ZStack {
+            Color.brown.opacity(0.5).ignoresSafeArea()
+            
+            VStack(alignment: .leading) {
+                Text("Prénom")
+                    .font(.title3)
+                    .fontWeight(.medium)
+                
+                TextField("Entrer votre prénom", text: $firstname)
+                    .textFieldStyle(RoundedBorderTextFieldStyle())
+                    .shadow(radius: 5)
+                
+                Text("Nom")
+                    .font(.title3)
+                    .fontWeight(.medium)
+                
+                TextField("Entrer votre nom", text: $name)
+                    .textFieldStyle(RoundedBorderTextFieldStyle())
+                    .shadow(radius: 5)
+            }
+            .padding()
+        }
     }
     
 }
-/*
-struct SousVue_Previews: PreviewProvider {
+
+struct FormView_Previews: PreviewProvider {
     static var previews: some View {
-        SousVue()
+        FormView(firstname: .constant(""), name: .constant(""))
     }
-}*/
+}
