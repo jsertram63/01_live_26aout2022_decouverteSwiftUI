@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct ContentView: View {
-    
+    // Initialise les objets UINavigationBar et UITableView avec des paramètres
     init() {
         UINavigationBar.appearance().largeTitleTextAttributes = [
             .foregroundColor: UIColor.brown,
@@ -33,7 +33,7 @@ struct ContentView: View {
             // Container vue permettant de scroller lorsque les éléments sortent de la safe area
             ScrollView(showsIndicators: false) {
                 // Container vue verticale: les autres éléments seront en pile verticale
-                VStack(alignment: .center, spacing: 40.0) {
+                VStack(alignment: .center, spacing: 35.0) {
                     // Container vue horizontal les autres éléments seront en pile horizontale
                     HStack(alignment: .center) {
                         
@@ -74,24 +74,36 @@ struct ContentView: View {
                         .fontWeight(.bold)
                         .multilineTextAlignment(.center)
                     
-                    Text(name1)
-                        .frame(width: 250, height: 15)
-                        .padding(10.0)
-                        .background(.ultraThickMaterial)
-                        .cornerRadius(10)
+                    VStack(alignment: .leading) {
+                        Text("Nom")
+                            .fontWeight(.bold)
+                            .foregroundColor(Color.brown)
+                        
+                        Text(name1)
+                            .frame(width: 250, height: 15)
+                            .padding(10.0)
+                            .background(.ultraThickMaterial)
+                            .cornerRadius(10)
                         .shadow(radius: 5)
+                    }
                     
-                    Text(firstname1)
-                        .frame(width: 250, height: 15)
-                        .padding(10.0)
-                        .background(.ultraThickMaterial)
-                        .cornerRadius(10)
+                    VStack(alignment: .leading) {
+                        Text("Prénom")
+                            .fontWeight(.bold)
+                            .foregroundColor(Color.brown)
+                        
+                        Text(firstname1)
+                            .frame(width: 250, height: 15)
+                            .padding(10.0)
+                            .background(.ultraThickMaterial)
+                            .cornerRadius(10)
                         .shadow(radius: 5)
+                    }
                     
                     Button {
                         modale.toggle()
                     } label: {
-                        Text("Afficher la modale")
+                        Text("Présentez-vous")
                             .foregroundColor(.white)
                             .fontWeight(.bold)
                     }
@@ -115,7 +127,7 @@ struct ContentView: View {
             // Modifyer toolbar ajoute des éléments (views) à la navigationBarTitle
             .toolbar {
                 ToolbarItem(placement: .automatic) {
-                    // Container vue Image: permet d'afficher image que l'on ajoute dans Assets
+                    // Container vue Image: permet d'afficher une image que l'on ajoute dans Assets
                     Image("swift")
                         .resizable()
                         .scaledToFit()
